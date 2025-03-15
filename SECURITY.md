@@ -11,4 +11,4 @@ currently being supported with security updates.
 | 1.0     | :x:                |
 
 ## Reporting a Vulnerability
-To report a vulnerability, email me at elijah1busch@gmail.com.
+If you would like to report a vulnerability, please let me know [here](https://github.com/ebusch8/Elijahs-Website/issues).
