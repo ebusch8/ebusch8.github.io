@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<head lang="en">
+    <title>Elijah's Website V2</title>
+    <style> 
+        button {
+            display: flex;
+            flex: 2;
+            transition: all .07s ease;
+        }
+        
+        * {
+            font-family: sans-serif;
+            font-size: 15px;
+        }
+
+        .keys, .key {
+            border-color: white;
+        }
+
+
+        iframe, video {
+            border-style: solid;
+            border-color: white;
+        }
+
+        h1 {
+            font-size: 20px;
+        }
+
+
+
+        body {
+            padding: 25px;
+            background-color: white;
+            color: black;
+            font-size: 25px;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+        .light-mode {
+            background-color: white;
+            color: black;
+        }
+        /* The switch - the box around the slider */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+        
+        .slider.round:before {
+            border-radius: 50%;
+        }
+        /* Add a black background color to the top navigation */
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        /* Style the links inside the navigation bar */
+        .topnav a, button {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        /* Change the color of links on hover */
+        .topnav a:hover button:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Add a color to the active/current link */
+        .topnav a.active button.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+        * {box-sizing: border-box}
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+        }
+        
+        /* Add a background color when the inputs get focus */
+        input[type=text]:focus, input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+        }
+        
+        /* Set a style for all buttons */
+        modal.button, {
+        background-color: #04AA6D;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+        }
+        
+        button:hover {
+        opacity:1;
+        }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+        padding: 14px 20px;
+        background-color: #f44336;
+        }
+
+        /* Float cancel and signup buttons and add an equal width */
+        .cancelbtn, .signupbtn {
+        float: left;
+        width: 50%;
+        }
+
+        /* Add padding to container elements */
+        .container {
+        padding: 16px;
+        }
+
+        /* The Modal (background) */
+        .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background: none;
+        padding-top: 50px;
+        }
+        
+        /* Modal Content/Box */
+        .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* Style the horizontal ruler */
+        hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+        }
+
+        /* The Close Button (x) */
+        .close {
+        position: absolute;
+        right: 35px;
+        top: 15px;
+        font-size: 40px;
+        font-weight: bold;
+        color: #f1f1f1;
+        }
+
+        .close:hover,
+        .close:focus {
+        color: #f44336;
+        cursor: pointer;
+        }
+
+        /* Clear floats */
+        .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+        }
+
+        /* Change styles for cancel button and signup button on extra small screens */
+        @media screen and (max-width: 300px) {
+            .cancelbtn, .signupbtn {
+                width: 100%;
+            }
+        }
+        /* Create a right-aligned (split) link inside the navigation bar */
+        .topnav a.split {
+            float: right;
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" charset="UTF-8">
+    <link rel="icon" href="https://cdn4.iconfinder.com/data/icons/whsr-january-flaticon-set/512/servers.png" type="image/x-icon"/>
+    <link href="file:///media/fuse/drivefs-5fc36cdec9b55a8aba5617de4626951f/root/Coding/My%20website/style.css" rel="stylesheet"> 
+    <link href="https://127.0.0.1:8888/style.css" rel="stylesheet">  
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <link rel="stylesheet" href="https://github.com/ebusch8/Elijahs-Website/blob/9fa034c7afd9484135bc830b6ce2f969aec592d8/style.css">
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <script src="https://github.com/ebusch8/Elijahs-Website/blob/9fa034c7afd9484135bc830b6ce2f969aec592d8/script.js"></script>
+    
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="https://eaglercraft.com/mc/1.5.2/">Eaglercraft 1.5.2</a>
+        <a href="https://eaglercraft.com/mc/1.8.8/">Eaglercraft 1.8.8</a>
+        <a href="https://eaglercraft.com/mc/1.8.8-wasm/">Eaglercraft 1.8.8 WASM</a>
+        <a href="https://eaglercraft.com/mc/1.12.2">Eaglercraft 1.12.2</a>
+        <a href="https://eaglercraft.com/mc/1.12.2-wasm">Eaglercraft 1.12.2 WASM</a>
+        <button onclick="document.getElementById('id01').style.display='block'" class="split">Sign Up</button>
+        <button onclick="welcome()">Welcome message</button>
+        <button onclick="getLocation()">Location Test</button>
+        <a href="/ohwell/index.html">Don't click this</a>
+    </div>
+    <style>
+        /* Add a black background color to the top navigation */
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        /* Style the links inside the navigation bar */
+        .topnav a, button {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        /* Change the color of links on hover */
+        .topnav a:hover button:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Add a color to the active/current link */
+        .topnav a.active button.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+        * {box-sizing: border-box}
+        /* Create a right-aligned (split) link inside the navigation bar */
+        .topnav a.split button.split {
+            float: right;
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+    <!-- The Modal (contains the Sign Up form) -->
+    <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content" action="/Logins/logins.json" autocomplete="on">
+            <div class="container">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+                
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+                
+                <label for="psw-repeat"><b>Repeat Password</b></label>
+                <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                
+                <label>
+                    <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                </label>
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signup" onclick="logins">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div id="Main">
+        <h1>ESP8266 Web Server</h1>
+        <h2>About me</h2>
+        <p>I am a 12 year old boy who enjoys programming, electronics, and occasionally enjoy Video games. </p>
+        <p>And guess what? I'm learning to code!</p>
+        <p>I am hoping to start running this on my esp8266.</p>
+        <p>Does anyone else think goguardian is annoying?</p>
+        <p>I found a workaround! It's called <a href="https://chromewebstore.google.com/detail/energy-browser/knlfemondmfkdecmnknlcbjbpifidffh?hl=en" >Energy Browser</a></p>
+        <p>It only works on chromebooks though</p>
+        <p>I play eaglercraft and my favorite server is <a href="https://eag.hyper-network.net/">Hyper Network</a>. Eagler IP is wss://eag.hyper-network.net. If you find me, Elijah_Busch, add me as a friend!</p>
+        <meta charset="utf-8">
+        <b style="font-weight:normal;" id="docs-internal-guid-78206dbe-7fff-bfd4-c91e-44d2a881f2fe">
+            <img width="263px;" height="175px;" src="data:image/png;base64,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" />
+        </b>
+    </div>
+    <br>
+    
+    <p id="demo"></p>
+    <label class="switch">
+        <input type="checkbox" id="myCheck" onclick="DarkmodeToggle()">
+        <span class="slider round"></span>
+    </label>
+    <p id="text" style="display:none">Darkmode is ON!</p>
+    <p id="text" style="display:True">Darkmode is OFF!</p>
+    <script>
+        
+        const myJSON = '{"email":"elijah1busch@gmail.com", "password":"Team406m"}';
+        const myObj = JSON.parse(myJSON);
+        x = myObj["email", "password"];
+        document.getElementById("demo").innerHTML = x;
+        
+        function darkMode() {
+            let element = document.body;
+            element.className = "dark-mode";
+        }
+        function lightMode() {
+            let element = document.body;
+            element.className = "light-mode";
+        }
+        function DarkmodeToggle() {
+            // Get the checkbox
+            var checkBox = document.getElementById("myCheck");
+            // Get the output text
+            var text = document.getElementById("text");
+            
+            // If the checkbox is checked, display the output text
+            if (checkBox.checked == true){
+                text.style.display = "block";
+                darkMode()
+            } else {
+                text.style.display = "none";
+                lightMode()
+            }
+        }
+         const mdns = require('mdns');
+            const http = require('http');
+
+            const hostname = 'ebusch'; // Your desired hostname
+            const port = 8888; // Your web server's port
+
+            const server = http.createServer((req, res) => {
+                res.writeHead(200, {'Content-Type': 'text/html'});
+                res.end('<h1>Hello from my-web-server!</h1>');
+            });
+
+            server.listen(port, () => {
+                console.log(`Web server listening on port ${port}`);
+
+                mdns.listen(port, {
+                    name: hostname,
+                    type: '_http',
+                    subtype: '_tcp',
+                    txt: {
+                        path: '/'
+                    }
+                }, (err, service) => {
+                    if (err) {
+                        console.error('Error advertising mDNS service:', err);
+                    } else {
+                        console.log('mDNS service advertised:', service);
+                    }
+                });
+            });
+        function welcome() {
+            // Welcome pop-up
+            alert("Welcome to my website!");
+        }
+        function getLocation() {
+            if (navigator.geolocation) {
+                alert(navigator.geolocation.getCurrentPosition(showPosition));
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+        function runPythonScript() {
+            var data = {
+            message: “Hello from HTML!”
+        };
+        var xhr = new XMLHttpRequest();
+            xhr.open(“POST”, “run_script.py”, true);
+            xhr.setRequestHeader(“Content-Type”, “application/json”);
+            xhr.send(JSON.stringify(data)); 
+        }
+
+public void init(ServletConfig config) throws ServletException {
+            super.init(config);
+            ServletContext context = getServletContext();
+            applet_code_base = context.getInitParameter("applet_code_base");
+            applet_code = context.getInitParameter("applet_code");
+
+          }
+        // Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+    </script>
+    <script src="file:///media/fuse/drivefs-5fc36cdec9b55a8aba5617de4626951f/root/Coding/My%20website/script.js"></script>
+</body>

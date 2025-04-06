@@ -1,3 +1,5 @@
+console.log("Testing, testing")
+
 function removeTransition(e) {
     if (e.propertyName !== 'transform') return;
     e.target.classList.remove('playing');
@@ -43,3 +45,20 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+function runPythonScript() {
+  var data = {
+  message: “Hello from HTML!”
+};
+  var xhr = new XMLHttpRequest();
+  xhr.open(“POST”, “run_script.py”, true);
+  xhr.setRequestHeader(“Content-Type”, “application/json”);
+  xhr.send(JSON.stringify(data));
+}
+
+public void init(ServletConfig config) throws ServletException {
+            super.init(config);
+            ServletContext context = getServletContext();
+            applet_code_base = context.getInitParameter("applet_code_base");
+            applet_code = context.getInitParameter("applet_code");
+
+          }
