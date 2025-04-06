@@ -1,0 +1,54 @@
+<head lang="en">
+    <title>Elijah's Website V2</title>
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="https://eaglercraft.com/mc/1.5.2/">Eaglercraft 1.5.2</a>
+        <a href="https://eaglercraft.com/mc/1.8.8/">Eaglercraft 1.8.8</a>
+        <a href="https://eaglercraft.com/mc/1.8.8-wasm/">Eaglercraft 1.8.8 WASM</a>
+        <a href="https://eaglercraft.com/mc/1.12.2">Eaglercraft 1.12.2</a>
+        <a href="https://eaglercraft.com/mc/1.12.2-wasm">Eaglercraft 1.12.2 WASM</a>
+        <button onclick="document.getElementById('id01').style.display='block'" class="split">Sign Up</button>
+        <button onclick="welcome()">Welcome message</button>
+        <button onclick="getLocation()">Location Test</button>
+    </div>
+    <style>
+        /* Add a black background color to the top navigation */
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        /* Style the links inside the navigation bar */
+        .topnav a, button {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        /* Change the color of links on hover */
+        .topnav a:hover button:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Add a color to the active/current link */
+        .topnav a.active button.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+        * {box-sizing: border-box}
+        /* Create a right-aligned (split) link inside the navigation bar */
+        .topnav a.split button.split {
+            float: right;
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+
+
+    </body>
