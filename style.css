@@ -1,76 +1,173 @@
-/* Style the button that is used to open and close the collapsible content */
-.collapsible {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
+button {display: flex; flex: 2; transition: all .07s ease;}
+* {font-family: sans-serif; font-size: 15px;}
+.keys, .key { border-color: white;}
+iframe, video {border-style: solid; border-color: white;}
+h1 {font-size: 20px;}
+body {padding: 25px; background-color: white; color: black; font-size: 25px; margin: 0; padding: 0; font-family: sans-serif;}
+.dark-mode {background-color: black; color: white;}
+.light-mode {background-color: white; color: black;}
+/* The switch - the box around the slider */
+.switch {position: relative; display: inline-block; width: 60px; height: 34px;}
+/* Hide default HTML checkbox */
+.switch input {opacity: 0; width: 0; height: 0;}
+/* The slider */
+.slider {position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; -webkit-transition: .4s; transition: .4s;}
+.slider:before {position: absolute;content: "";height: 26px;width: 26px;left: 4px;bottom: 4px;background-color: white;-webkit-transition: .4s;transition: .4s;}
+input:checked + .slider {background-color: #2196F3;}
+input:focus + .slider {box-shadow: 0 0 1px #2196F3;}
+
+input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transform: translateX(26px);transform: translateX(26px);}
+
+/* Rounded sliders */
+.slider.round {border-radius: 34px;}
+
+.slider.round:before {border-radius: 50%;}
+/* Full-width input fields */
+.modal input[type=text], input[type=password] {width: 100%; padding: 15px; margin: 5px 0 22px 0; display: inline-block; border: none; background: #f1f1f1;}
+
+/* Add a background color when the inputs get focus */
+.modal input[type=text]:focus, input[type=password]:focus {
+background-color: #ddd;
+outline: none;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, .collapsible:hover {
-  background-color: #eee;
+/* Set a style for all buttons */
+modal.button {
+background-color: #04AA6D;
+color: white;
+padding: 14px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 100%;
+opacity: 0.9;
 }
 
-/* Style the collapsible content. Note: hidden by default */
-.content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
+button:hover {
+opacity:1;
 }
 
-button {
-    display: flex;
-    flex: 2;
-    transition: all .07s ease;
-    color: blue
+/* Extra styles for the cancel button */
+.cancelbtn {
+padding: 14px 20px;
+background-color: #f44336;
 }
 
-* {
-  font-family: cursive;
-  font-size: 15px;
-  background: black;
-  color: white;
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+float: left;
+width: 50%;
 }
 
-
-
-/*iframe is what youtube uses */
-iframe, video {
-    border-style: solid;
-    border-color: white;
+/* Add padding to container elements */
+.container {
+padding: 16px;
 }
 
-h1 {
-    font-size: 20px;
+/* The Modal (background) */
+.modal {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background: none;
+padding-top: 50px;
 }
 
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
-body {
-  padding: 25px;
-  background-color: white;
-  color: black;
-  font-size: 25px;
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+/* Modal Content/Box */
+.modal-content {
+background-color: #fefefe;
+margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+border: 1px solid #888;
+width: 80%; /* Could be more or less, depending on screen size */
 }
 
-.dark-mode {
-  background-color: black;
-  color: white;
+/* Style the horizontal ruler */
+hr {
+border: 1px solid #f1f1f1;
+margin-bottom: 25px;
 }
 
-        .light-mode {
-            background-color: white;
-            color: black;
-        }
+/* The Close Button (x) */
+.close {
+position: absolute;
+right: 35px;
+top: 15px;
+font-size: 40px;
+font-weight: bold;
+color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+color: #f44336;
+cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+content: "";
+clear: both;
+display: table
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+        width: 100%;
+    }
+}
+/* Create a right-aligned (split) link inside the navigation bar */
+.topnav a.split, button.split {
+    float: right;
+    background-color: #04AA6D;
+    color: white;
+    background:none; border: none;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {background-color: #333;overflow: hidden;}
+/* Style the links inside the navigation bar */
+.topnav a {float: left; 
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;}
+.topnav button {
+    background:none;
+    border: none;
+    float: left; 
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover, button:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active, button.active {
+    background-color: #04AA6D;
+    color: white;
+}
+* {box-sizing: border-box}
+/* Create a right-aligned (split) link inside the navigation bar */
+.topnav a.split, button.split {
+    float: right;
+    background-color: #04AA6D;
+    color: white;
+}
+
+body > *:not(.topnav) {
+    margin-left: 30px;
+}
