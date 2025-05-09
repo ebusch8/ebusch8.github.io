@@ -1,22 +1,18 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const mdns = require('mdns');
+//const mdns = require('mdns');
 
 
 const hostname = 'ebusch'; // Your desired hostname
 const port = 8081; // Your web server's port
 
 
-server.listen(port, () => {
-    console.log(`Web server listening on port ${port}`);
-    
-});
 
 
 // Create the server
 const server = http.createServer((req, res) => {
-mdns.listen(port, {
+/*mdns.listen(port, {
         name: hostname,
         type: '_http',
         subtype: '_tcp',
@@ -29,7 +25,7 @@ mdns.listen(port, {
         } else {
             console.log('mDNS service advertised:', service);
         }
-    });
+    });*/
   // Serve the HTML file
   const filePath = path.join(__dirname, 'index.html');
   fs.readFile(path.join(__dirname, 'style.css'), (err, data) => {
@@ -52,7 +48,9 @@ mdns.listen(port, {
   });
 });
 
+
+
 // Start the server
-server.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+server.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });
