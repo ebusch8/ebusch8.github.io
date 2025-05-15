@@ -1,11 +1,12 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const json = require('json')
 //const mdns = require('mdns');
 
 
 const hostname = 'ebusch'; // Your desired hostname
-const port = 8081; // Your web server's port
+const port = 8080; // Your web server's port
 
 
 
@@ -26,7 +27,7 @@ const server = http.createServer((req, res) => {
             console.log('mDNS service advertised:', service);
         }
     });*/
-  // Serve the HTML file
+  // Serve the PHP file
   const filePath = path.join(__dirname, 'index.html');
   
   fs.readFile(filePath, (err, data) => {
@@ -34,7 +35,7 @@ const server = http.createServer((req, res) => {
       res.writeHead(500, { 'Content-Type': 'text/plain' });
       res.end('Internal Server Error');
     } else {
-      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.writeHead(200, { 'Content-Type': 'text/html'});
       res.end(data);
     }
   });

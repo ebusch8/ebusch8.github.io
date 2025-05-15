@@ -4,6 +4,14 @@ function Encode() {
     let encoded = window.btoa(toEncode);
     output = `Encoded: ${encoded}` 
 }
+
+function Decode() {
+    let toDecode = document.getElementById("toDecode").value;
+    let output = document.getElementById("decoded").innerHTML;
+    let decoded = window.atob(toDecode);
+    output = `Decoded: ${decoded}`
+}
+
 function darkMode() {
     let element = document.body;
     element.className = "dark-mode";
