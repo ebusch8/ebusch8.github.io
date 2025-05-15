@@ -16,19 +16,7 @@
     <link rel="alternative" href="index.html" type="text/html" />
     <meta name="google-site-verification" content="fBT8TG5y6bvRY4qrRVVRIi8pjZmQotH76whDYn9DxYk" />
     <?php
-    function Encode() {
-        $toEncode = document.getElementById("toEncode").value;
-        $encoded = base64_encode($toEncode);
-        $output = `Encoded: $encoded` 
-        document.getElementById("encoded").innerHTML = $output;
-    }
 
-    function Decode() {
-        let toDecode = document.getElementById("toDecode").value;
-        let output = document.getElementById("decoded").innerHTML;
-        let decoded = window.atob(toDecode);
-        output = `Decoded: ${decoded}`
-    }
     ?>
 </head>
 <body id="home" class="darkmode">

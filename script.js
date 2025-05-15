@@ -1,8 +1,8 @@
 function Encode() {
     let toEncode = document.getElementById("toEncode").value;
-    let output = document.getElementById("encoded").innerHTML;
     let encoded = window.btoa(toEncode);
-    output = `Encoded: ${encoded}` 
+    let output = `Encoded: ${encoded}`  
+    document.getElementById("encoded").innerHTML = output;
 }
 
 function Decode() {
