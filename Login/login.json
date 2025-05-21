@@ -1,3 +1,7 @@
 {
-"account":{"email":"elijah1busch@gmail.com", "password":"VGVhbTQwNm0=" "encryption":"base64"}
+    "account":{
+        "email":"elijah1busch@gmail.com", 
+        "password":"095f05b0677403d85af7f75a027a4e559f64613eb1413c63e0a02e9f7e0dd197",
+        "id":"1"
+    }
 }
