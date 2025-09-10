@@ -9,12 +9,12 @@ ajaxreq= new XMLHttpRequest();
 } catch (error) {
 try {
 // IE 5 / IE 6
-ajaxreq = new ActiveXObject(“Microsoft.XMLHTTP”);
+ajaxreq = new ActiveXObject("Microsoft.XMLHTTP");
 } catch (error) {
 return false;
 }
 }
-ajaxreq.open(“GET”, filename);
+ajaxreq.open("GET", filename);
 ajaxreq.onreadystatechange = ajaxResponse;
 ajaxreq.send(null);
 }
@@ -24,6 +24,6 @@ if (ajaxreq.readyState !=4) return;
 if (ajaxreq.status==200) {
 // if the request succeeded...
 if (ajaxCallback) ajaxCallback();
-} else alert(“Request failed: “ + ajaxreq.statusText);
+} else alert("Request failed: " + ajaxreq.statusText);
 return true;
 }
