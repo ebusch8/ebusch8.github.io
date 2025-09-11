@@ -55,7 +55,7 @@ for (i = 0; i < coll.length; i++) {
         }
     });
 }
-var xhr = new XMLHttpRequest();
+var xhr = new XMLHttpRequest(); {
     xhr.open("POST", "main.py", true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(JSON.stringify(data)); 

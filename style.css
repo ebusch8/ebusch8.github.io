@@ -1,3 +1,7 @@
+header img {
+    float: right
+}
+
 button {display: flex; flex: 2; transition: all .07s ease;}
 * {font-family: sans-serif; font-size: 15px;}
 .keys, .key { border-color: white;}
@@ -170,4 +174,12 @@ display: table
 
 body > *:not(.topnav) {
     margin-left: 30px;
+}
+
+footer {
+  display: flex;
+  align-items: flex-end; /* Aligns content to the bottom */
+  justify-content: center; /* Centers content horizontally (optional) */
+  min-height: 50px; /* Example height for the footer */
+  width: 100%;
 }

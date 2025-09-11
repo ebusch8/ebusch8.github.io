@@ -1,0 +1,3 @@
+header img {
+    float: right; /* Make the image a block-level element */
+}
