@@ -1,49 +1,54 @@
 const http = require('http');
 const fs = require('fs');
-const path = require('path');
-const json = require('json')
-//const mdns = require('mdns');
+const path = require('path'); // For handling file paths
+const mysql = require('mysql2/promise'); // This is the databse
 
+const PORT = 8080; // Port number to serve on
 
-const hostname = 'ebusch'; // Your desired hostname
-const port = 8123; // Your web server's port
-
-
-
-
-// Create the server
 const server = http.createServer((req, res) => {
-/*mdns.listen(port, {
-        name: hostname,
-        type: '_http',
-        subtype: '_tcp',
-        txt: {
-            path: '/'
-        }
-    }, (err, service) => {
+    // Define the path to your HTML file
+    const filePath = path.join(__dirname, 'index.html'); 
+
+    fs.readFile(filePath, (err, data) => {
         if (err) {
-            console.error('Error advertising mDNS service:', err);
-        } else {
-            console.log('mDNS service advertised:', service);
+            res.writeHead(404, { 'Content-Type': 'text/plain' });
+            res.end('404 Not Found');
+            return;
         }
-    });*/
-  // Serve the PHP file
-  const filePath = path.join(__dirname, 'index.html');
-  
-  fs.readFile(filePath, (err, data) => {
-    if (err) {
-      res.writeHead(500, { 'Content-Type': 'text/plain' });
-      res.end('Internal Server Error');
-    } else {
-      res.writeHead(200, { 'Content-Type': 'text/html'});
-      res.end(data);
+
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(data);
+    });
+});
+
+server.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
+    
+
+    async function connectAndQuery() {
+        try {
+            // Create a connection pool or a single connection
+            const connection = await mysql.createConnection({
+                host: 'localhost', // Your MySQL host
+                user: 'your_username', // Your MySQL username
+                password: 'your_password', // Your MySQL password
+                database: 'your_database' // The database you want to connect to
+            });
+
+            console.log('Connected to MySQL database!');
+
+            // Example: Execute a simple query
+            const [rows, fields] = await connection.execute('SELECT * FROM your_table_name');
+            console.log('Query results:', rows);
+
+            // Close the connection
+            await connection.end();
+            console.log('Connection closed.');
+
+        } catch (error) {
+            console.error('Error connecting or querying database:', error);
+        }
     }
-  });
-});
 
-
-
-// Start the server
-server.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+    connectAndQuery();

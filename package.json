@@ -8,13 +8,20 @@
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Elijah Busch",
   "license": "ISC",
   "dependencies": {
+    "express": "^5.1.0",
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security",
     "json": "^11.0.0",
     "jsonfile": "^6.1.0",
+    "mongoose": "^8.18.1",
+    "mysql2": "^3.14.5",
     "path": "^0.12.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ebusch8.github.io"
   }
 }
