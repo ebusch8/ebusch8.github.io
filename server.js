@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path'); // For handling file paths
-const mysql = require('mysql2/promise'); // This is the databse
+const mysql = require('mysql'); // This is the databse
 const express = require('express');
 const port = 8080; // Port number to serve on
 const app = express();
