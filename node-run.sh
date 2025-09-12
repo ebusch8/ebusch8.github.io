@@ -1,2 +1,1 @@
-./auto-commit.sh 
-node server.js
+./auto-commit.sh && node server.js
