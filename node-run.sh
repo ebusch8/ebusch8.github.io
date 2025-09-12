@@ -1,1 +1,2 @@
+./auto-commit.sh 
 node server.js
