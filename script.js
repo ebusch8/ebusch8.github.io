@@ -23,24 +23,6 @@ function Decode() {
     output = `Decoded: ${decoded}`
 }
 
-
-const myJSON = '{"email":"elijah1busch@gmail.com", "password":"Team406m"}';
-const myObj = JSON.parse(myJSON);
-x = myObj["email", "password"];
-document.getElementById("demo").innerHTML = x;
-
-function welcome() {
-    // Welcome pop-up
-    alert("Welcome to my website!");
-}
-function getLocation() {
-    if (navigator.geolocation) {
-        alert(navigator.geolocation.getCurrentPosition(showPosition));
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
