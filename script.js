@@ -1,3 +1,11 @@
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("/header.html")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("header").innerHTML = html;
+    });
+});
+
 function hash(string) {
   const utf8 = new TextEncoder().encode(string);
   return crypto.subtle.digest('SHA-256', utf8).then((hashBuffer) => {
